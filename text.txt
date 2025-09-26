@@ -1,0 +1,185 @@
+[
+
+  {
+    "_id": { "$oid": "66fefc222222222222222222" },
+    "slug": "How AI is Changing the World",
+    "title": "How AI is Changing the World",
+    "desc": "Artificial intelligence (AI) is no longer a futuristic dream; it's a present reality that's rapidly reshaping our world. Over the next decade, we can expect even more profound transformations as AI continues to advance at an unprecedented pace.\nFrom healthcare to transportation, AI's impact is already undeniable. In medicine, AI-powered diagnostics are identifying diseases earlier and more accurately, while personalized treatment plans are becoming a reality. Autonomous vehicles promise safer and more efficient transportation, and AI in education is tailoring learning experiences to individual student needs. The next ten years will see these applications mature, becoming more integrated and seamless in our daily lives. Imagine AI assistants that truly anticipate our needs, smart cities that optimize resources in real-time, and scientific discoveries accelerated by AI's analytical power.",
+
+    "img": "https://plus.unsplash.com/premium_photo-1661443598082-afd740d6d07c?q=80&w=989&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "views": 0,
+    "catSlug": "Artificial Intelligence",
+    "userEmail": "rimshaarfeen61@gmail.com",
+    "createdAt": { "$date": "2025-09-11T09:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "66fefc333333333333333333" },
+    "slug": "Top 10 Tips for a Healthy Lifestyle",
+    "title": "Top 10 Tips for a Healthy Lifestyle",
+    "desc": "A healthy lifestyle is within reach for everyone. It's not about drastic changes, but small, consistent habits. To start, prioritize your plate: fill it with fruits, vegetables, and lean proteins. Hydration is key, so drink plenty of water throughout the day. Make time for movement—even a short walk can make a difference. Prioritize sleep, aiming for 7-9 hours a night to recharge your body and mind. Don't forget stress management; mindfulness, hobbies, or deep breathing can help. Stay connected with loved ones, as social bonds are crucial for mental well-being. By integrating these simple habits, you can build a foundation for a healthier, happier you.",
+    "img": "https://images.unsplash.com/photo-1494390248081-4e521a5940db?q=80&w=806&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "views": 0,
+    "catSlug": "Health",
+    "userEmail": "rimshaarfeen61@gmail.com",
+    "createdAt": { "$date": "2025-09-11T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "66fefc444444444444444444" },
+    "slug": "The Power of Education",
+    "title": "The Power of Education",
+    "desc": "The education landscape is in the midst of a profound transformation, driven by technology and evolving pedagogical approaches. Modern teaching methods are shifting from passive, teacher-led lectures to active, student-centric learning. Techniques like flipped classrooms, project-based learning, and gamification are making education more engaging and effective by encouraging collaboration and critical thinking.\nComplementing these methods are the rapid advancements in online learning platforms. Platforms like Coursera, edX, and Khan Academy have democratized access to knowledge, offering a vast array of courses from top institutions and experts worldwide. This has made education more flexible and accessible, enabling lifelong learning and skills development for a global audience.\nThe synergy between these elements is fueling the explosive growth of the EdTech industry. Valued in the hundreds of billions of dollars, the market is expanding with a focus on personalized learning, AI-powered tools, and virtual/augmented reality. The future of education lies in this integration, where technology isn't just a tool but a fundamental component of a dynamic, customized, and globally connected learning experience.",
+
+
+    "img": "https://images.unsplash.com/photo-1629273229214-d96be4552b9a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "views": 0,
+    "catSlug": "Education",
+    "userEmail": "rimshaarfeen61@gmail.com",
+    "createdAt": { "$date": "2025-09-11T11:00:00Z" }
+  }
+]
+
+ {
+  "_id": { "$oid": "66fefc111111111111111111" },
+  "slug": "The Future of Technology",
+  "title": "The Future of Technology",
+  "desc": "The Future of Technology\nThe pace of technological innovation is accelerating at an unprecedented rate, with artificial intelligence (AI) leading the charge. Over the next decade, we can anticipate a world profoundly reshaped by advancements that were once confined to the realm of science fiction.\nAI's reach is already expanding into nearly every sector. In healthcare, we'll see AI not only assisting with diagnostics but also discovering new drugs and developing personalized treatments tailored to individual genetic profiles. Transportation will be revolutionized by fully autonomous systems, making travel safer and more efficient. Education will become highly adaptive, with AI tutors providing customized learning paths. Beyond these, expect breakthroughs in sustainable energy management, advanced robotics for manufacturing and exploration, and hyper-connected smart cities that optimize resource allocation and enhance quality of life. The integration of AI into the Internet of Things will create an intelligent ecosystem that responds intuitively to our needs.\nHowever, this technological leap forward comes with significant ethical responsibilities. The increasing autonomy of AI systems raises questions about accountability, bias in algorithms, and the potential for job displacement.",
+  "img": "https://plus.unsplash.com/premium_photo-1725408034958-e0b4025deda6?q=80&w=1052&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "views": 0,
+  "catSlug": "Technology",
+  "userEmail": "rimshaarfeen61@gmail.com",
+  "createdAt": { "$date": "2025-09-11T08:00:00Z" }
+}
+
+
+
+
+// prisma/schema.prisma
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?         @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  // Optional for WebAuthn support
+  Authenticator Authenticator[]
+  blogs         Blog[]
+  comments      Comment[]
+  categories    Category[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Optional for WebAuthn support
+model Authenticator {
+  credentialID         String  @id @map("_id")
+  userId               String  @db.ObjectId
+  providerAccountId    String
+  credentialPublicKey  String
+  counter              Int
+  credentialDeviceType String
+  credentialBackedUp   Boolean
+  transports           String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, credentialID])
+}
+
+// model Blog {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   title     String
+//   content   String
+//   authorId  String   @db.ObjectId
+//   author    User     @relation(fields: [authorId], references: [id])
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
+
+model Category {
+  id     String  @id @default(cuid()) @map("_id")
+  slug   String  @unique
+  title  String
+  img    String?
+  blogs  Blog[]
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String? @db.ObjectId
+}
+
+model Blog {
+  id        String    @id @default(cuid()) @map("_id")
+  createdAt DateTime  @default(now())
+  slug      String    @unique
+  title     String
+  desc      String
+  img       String?
+  views     Int       @default(0)
+  catSlug   String
+  cat       Category  @relation(fields: [catSlug], references: [slug])
+  userEmail String
+  user      User      @relation(fields: [userEmail], references: [email])
+  comments  Comment[]
+}
+
+model Comment {
+  id        String   @id @default(cuid()) @map("_id")
+  createdAt DateTime @default(now())
+  desc      String
+  userEmail String
+  user      User     @relation(fields: [userEmail], references: [email])
+  blogSlug  String
+  blog      Blog     @relation(fields: [blogSlug], references: [slug])
+}
