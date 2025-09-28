@@ -28,7 +28,9 @@ const ProfilePage = () => {
         
         {/* Profile Card */}
         <div className="dark:  shadow-lg rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-6">
-          <img
+          <Image
+            width={128} height={128}
+            style={{ height: "auto", width: "auto" }}
             className="w-32 h-32 rounded-full object-cover border-4 border-blue-600"
             src={session?.user?.image || "/default-avatar.png"}
             alt={session?.user?.name}

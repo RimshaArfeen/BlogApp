@@ -6,7 +6,8 @@ import Comments from "../../Components/Comments";
 import "../../globals.css";
 import { formatDate } from "@/app/utils";
 import MostPopular from "../../Components/MostPopular";
-
+import DOMPurify from "isomorphic-dompurify";
+import Image from "next/image";
 
 const getData = async (slug) => {
   const res = await fetch(`http://localhost:3000/api/allBlogs/${slug}`, {
@@ -32,14 +33,14 @@ export default async function FullBlogPostPage({ params }) {
           <article className="md:col-span-2">
             {data.img && (
               <div className="mb-8 overflow-hidden shadow-md">
-                <img src={data.img} alt={data.title} className="w-full h-full object-cover" />
+                <Image src={data.img} alt={data.title} className="w-full h-full object-cover"  width={600} height={400} style={{ height: "auto" , width: "auto" }} />
               </div>
             )}
             <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">{data.title}</h1>
             <div className="flex flex-col md:flex-row border-t items-start md:items-center gap-4 py-4 mb-10 ">
               {/* User Image */}
               <div className="flex-shrink-0">
-                <img
+                <Image
                   src={data.user.image}
                   alt={data.user.name}
                   className="w-16 h-16 rounded-full object-cover border border-primary"
@@ -69,10 +70,9 @@ export default async function FullBlogPostPage({ params }) {
               </div>
             </div>
             <div className="prose prose-lg text-lg dark:prose-invert max-w-none text-justify">
-              <p>{data.desc}</p>
-
+              <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data.desc) }} />
             </div>
-           
+
           </article>
           <Comments blogSlug={data.slug} />
         </main>

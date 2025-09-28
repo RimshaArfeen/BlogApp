@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react'
 import useSWR from 'swr'
 import { useState, useEffect } from 'react'
 import React from 'react'
+import Image from 'next/image'
 
 const fetcher = async (url) => {
     const response = await fetch(url)
@@ -100,7 +101,8 @@ const Comments = ({ blogSlug }) => {
                                 key={item.id}
                                 className=" w-full flex flex-col gap-3 mt-6">
                                 <figcaption className="flex items-center mt-6 space-x-3 rtl:space-x-reverse">
-                                    <img className="w-6 h-6 rounded-full" src={item.user.image} alt={item.user.name} />
+                                    <Image 
+                                        className="w-6 h-6 rounded-full" src={item.user.image} alt={item.user.name} width={24} height={24}  style={{ width: 'auto', height: 'auto' }} />
                                     <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-300 dark:divide-gray-700">
                                         <p className="pe-3 font-medium e">{item.user.name}</p>
                                         {mounted && <p className="ps-3 text-sm ">{formatDate(item.createdAt)}</p>}

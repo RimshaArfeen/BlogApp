@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { slugify } from "@/app/utils";
 
 export async function GET(req) {
   try {
@@ -41,11 +42,11 @@ export async function POST(req) {
     console.log("POST API route - Received body:", body);
     
     // Trim the slug from the body to ensure consistency
-    const trimmedSlug = body.blogSlug?.trim().replace(/:/g, "-");
-    console.log("POST API route - Saving with trimmed slug:", trimmedSlug);
-const existingUser = await prisma.user.findUnique({
-  where: { email: session.user.email },
-});
+    const slugifiedSlug = slugify(body.blogSlug);
+    console.log("POST API route - Saving with slugified slug:", slugifiedSlug);
+    const existingUser = await prisma.user.findUnique({
+      where: { email: session.user.email },
+    });
 
 if (!existingUser) {
   return NextResponse.json({ error: "User not found" }, { status: 400 });

@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { auth } from '@/auth';
 import { formatDate, truncateText } from '@/app/utils';
-
+import Image from 'next/image';
 
 const getAuthors = async (slug) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/authors/${slug}`, { cache: 'no-store' });
@@ -34,9 +34,11 @@ const page = async ({ params }) => {
       <div className="w-full lg:w-[70%] mx-auto">
         {/* Author Profile Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <img
+          <Image
             src={author.image}
             alt={author.name}
+            width={128} height={128}
+            style={{ width: 'auto', height: 'auto' }}
             className="w-48 h-48 rounded-full object-cover mb-6 border-4 border-indigo-500 shadow-md"
           />
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-2">{author.name}</h1>
@@ -62,10 +64,14 @@ const page = async ({ params }) => {
         >
           {blog.img && (
             <div className="relative h-56 w-full overflow-hidden">
-              <img
+              <Image
+              
                 alt={blog.title}
                 className="object-cover object-center w-full h-full transition-transform transform hover:rotate-2 hover:scale-105 duration-500"
                 src={blog.img}
+                width={600}
+                height={400}
+                style={{ height: "auto", width: "auto" }}
               />
             </div>
           )}
