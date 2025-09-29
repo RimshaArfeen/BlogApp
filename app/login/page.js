@@ -18,7 +18,7 @@ const page = () => {
             onClick={() => signIn("google", { callbackUrl: '/' })}
             className="flex items-center justify-center gap-3 border-[1px] py-2 px-4 rounded-lg  transition hover:cursor-pointer">
             <Image
-              width={20} height={20} style={{ width: "auto", height: "auto" }}
+              width={8} height={8} style={{ width: "auto", height: "auto" }}
               src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
             <span className="font-medium ">Login with Google</span>
           </button>
@@ -28,7 +28,7 @@ const page = () => {
             onClick={() => signIn("github", { callbackUrl: '/' })}
             className="flex items-center justify-center gap-3 border-[1px] py-2 px-4 rounded-lg  transition hover:cursor-pointer">
             <Image
-              width={20} height={20} style={{ width: "auto", height: "auto" }}
+              width={8} height={8} style={{ width: "auto", height: "auto" }}
               src="https://www.svgrepo.com/show/475654/github-color.svg" alt="GitHub" className="w-5 h-5" />
             <span className="font-medium ">Login with GitHub</span>
           </button>
@@ -36,7 +36,7 @@ const page = () => {
           {/* <!-- Facebook --> */}
           <button className="flex items-center justify-center gap-3 border-[1px] py-2 px-4 rounded-lg  transition hover:cursor-pointer">
             <Image
-              width={20} height={20} style={{ width: "auto", height: "auto" }}
+              width={8} height={8} style={{ width: "auto", height: "auto" }}
               src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="Facebook" className="w-5 h-5" />
             <span className="font-medium ">Login with Facebook</span>
           </button>
