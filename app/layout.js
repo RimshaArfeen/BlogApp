@@ -31,8 +31,8 @@ export const metadata = {
 // Function to fetch blogs (once in layout)
 const getBlogs = async (catSlug) => {
   const url = catSlug
-    ? `http://localhost:3000/api/allBlogs?cat=${catSlug}`
-    : `http://localhost:3000/api/allBlogs`;
+    ? `${process.env.NEXT_PUBLIC_BASE_URL}/api/allBlogs?cat=${catSlug}`
+    : `${process.env.NEXT_PUBLIC_BASE_URL}/api/allBlogs`;
 
   const res = await fetch(url , { cache: 'no-store' }); // Disable caching for dynamic content
   if (!res.ok) throw new Error("Failed to fetch blogs");

@@ -10,7 +10,7 @@ import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
 
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/allBlogs/${slug}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/allBlogs/${slug}`, {
     cache: "no-store",
   });
 
