@@ -1,14 +1,13 @@
-// root-auth.js
+// auth.js (root of your project)
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
-import { getServerSession } from "next-auth/next";
 
 const prisma = new PrismaClient();
 
-export const authOptions = {
+export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
     GitHub({
@@ -20,10 +19,5 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
-};
+});
 
-// Pass authOptions into NextAuth
-export const { handlers, signIn, signOut, auth } = NextAuth(authOptions);
-
-// Utility function to get the session server-side
-export const getAuthSession = () => getServerSession(authOptions);
