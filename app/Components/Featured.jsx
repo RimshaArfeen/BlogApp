@@ -52,7 +52,7 @@ const Featured = () => {
                 </p>
                 <Link
                   href={`/allBlogs/${blog.slug}`}
-                  className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-200 text-lg font-medium"
+                  className="inline-block px-6 py-3  btn-primary text-white rounded-lg shadow-md   transition-colors duration-200 text-lg font-medium"
                 >
                   Read More
                 </Link>

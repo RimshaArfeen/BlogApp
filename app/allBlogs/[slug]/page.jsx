@@ -32,18 +32,22 @@ export default async function FullBlogPostPage({ params }) {
         <main className=" lg:pr-5 flex flex-col justify-center items-start gap-6 md:col-span-2">
           <article className="md:col-span-2">
             {data.img && (
-              <div className="mb-8 overflow-hidden shadow-md">
-                <Image src={data.img} alt={data.title} className="w-full h-full object-cover"  width={600} height={400} style={{ height: "auto" , width: "auto" }} />
+              <div className="mb-8  overflow-hidden shadow-md">
+                <Image
+                  width={800} height={350}
+                  src={data.img} alt={data.title} 
+                  className=" object-cover"  />
               </div>
             )}
             <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">{data.title}</h1>
             <div className="flex flex-col md:flex-row border-t items-start md:items-center gap-4 py-4 mb-10 ">
               {/* User Image */}
-              <div className="flex-shrink-0">
+              <div className="w-16 h-16 flex-shrink-0">
                 <Image
+                  width={64} height={64}
                   src={data.user.image}
                   alt={data.user.name}
-                  className="w-16 h-16 rounded-full object-cover border border-primary"
+                  className=" rounded-full object-cover border border-primary"
                 />
               </div>
 
@@ -82,3 +86,4 @@ export default async function FullBlogPostPage({ params }) {
       </div> </section>
   );
 }
+

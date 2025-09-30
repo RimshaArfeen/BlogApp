@@ -23,8 +23,8 @@ const allura = Allura({
 
 
 export const metadata = {
-  title: "EchoJournal",
-  description: "Community reflections and opinions",
+  title: "EchoJournal | Discover Ideas, Stories & Insights",
+  description: "Welcome to Blog App — your hub for fresh ideas, inspiring stories, and expert insights. Explore trending topics, connect with authors, and start your reading journey today.",
 };
 
 

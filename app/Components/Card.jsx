@@ -18,14 +18,16 @@ const Card = ({ _id, slug, title, desc, img, views, user, catSlug, userEmail, cr
     <div className="w-full sm:flex justify-between items-center p-2 mb-6 ">
       {/* Blog Image */}
 {img && (
-  <div className="relative w-full sm:w-1/2 h-64"> 
-    <Image
-      src={img}
-      alt={title}
-      fill
-      className="object-cover"
-    />
-  </div>
+ <div className="relative w-full sm:w-1/2 h-64 overflow-hidden">
+  <Image
+    src={img}
+    alt={title}
+    fill
+    className="object-cover scale-100 hover:scale-105 transition-transform duration-500 ease-in-out shadow-md"
+  />
+</div>
+
+
 )}
 
       <div className={`${img ? "w-full sm:w-1/2": "w-full" } py-6 sm:p-6 `}>

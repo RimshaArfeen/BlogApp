@@ -25,3 +25,11 @@ export async function GET() {
     );
   }
 }
+
+export const generateMetadata = async () => {
+  return {
+    title: "Meet Our Authors | Blog App Community",
+    description:
+      "Discover the voices behind Blog App. Explore author profiles, follow their work, and connect with writers who share your interests and passions.",
+  };
+};

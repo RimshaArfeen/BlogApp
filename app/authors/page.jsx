@@ -75,11 +75,11 @@ export default async function AuthorsPage() {
                 </header>
 
                 {/* Author Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     {authors.map((author) => (
                         <div
                             key={author.id}
-                            className="sub p-8 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 transform border border-gray-100 dark:border-gray-700/50 flex flex-col items-center text-center cursor-pointer"
+                            className="sub  p-8 py-6 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 transform border border-gray-100 dark:border-gray-700/50 flex flex-col items-center text-center cursor-pointer"
                         >
                             {/* Profile Image with Enhanced Border */}
                             <Image
@@ -91,7 +91,7 @@ export default async function AuthorsPage() {
                             />
                             
                             {/* Name and Email */}
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">{author.name}</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1 capitalize">{author.name}</h2>
                             <p className="text-base text-indigo-600 dark:text-indigo-400 mb-6 font-medium">
                                 {author.email}
                             </p>
@@ -99,7 +99,7 @@ export default async function AuthorsPage() {
                             {/* Call to Action Button */}
                             <Link href={`/authors/${author.slug}`} passHref>
                                 <button 
-                                    className="w-full bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors duration-200"
+                                    className="w-full  btn-primary text-white font-semibold py-3 px-6 rounded-lg shadow-lg   transition-colors duration-200"
                                 >
                                     View Posts
                                 </button>

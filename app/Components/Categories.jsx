@@ -17,7 +17,7 @@ const Categories = async () => {
   return (
     <section className=" py-12 md:py-24 flex flex-col md:flex-row justify-center items-center gap-6 mx-auto">
 
-      <h4 className=" w-full md:w-[24%] text-3xl font-bold border-b-2 border-blue-600 ">Popular Categories</h4>
+      <h4 className=" w-full md:w-[24%] text-3xl font-bold ">Popular Categories</h4>
 
       <div className=" w-full md:w-3/4 flex flex-wrap justify-center gap-2 ">
         <div className="w-full flex flex-wrap justify-center lg:justify-end items-center gap-2">
