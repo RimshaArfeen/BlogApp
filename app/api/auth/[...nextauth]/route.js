@@ -6,7 +6,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default NextAuth({
+export const { handlers, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
     GitHubProvider({
@@ -18,5 +18,8 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET, // ✅ use NEXTAUTH_SECRET, not AUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
 });
+
+// This exports GET/POST handlers for your route
+export const { GET, POST } = handlers;
