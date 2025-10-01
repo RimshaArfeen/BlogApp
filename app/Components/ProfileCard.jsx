@@ -66,7 +66,7 @@ const ProfilePage = () => {
             {/* Logout */}
             <button
               onClick={handleLogout}
-              className="mt-6 inline-block bg-red-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-red-700 focus:ring-2 focus:ring-red-400 focus:outline-none"
+              className="mt-6 inline-block hover:cursor-pointer bg-red-600 text-white px-5 py-2 rounded text-sm font-medium hover:bg-red-700 focus:ring-2 focus:ring-red-400 focus:outline-none"
             >
               Logout
             </button>
