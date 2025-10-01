@@ -1,5 +1,3 @@
-
-
 import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -8,7 +6,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const { handlers, auth } = NextAuth({
+const handler = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
     GitHubProvider({
@@ -23,6 +21,4 @@ export const { handlers, auth } = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
 });
 
-// This exports GET/POST handlers for your route
-export const { GET, POST } = handlers;
-
+export { handler as GET, handler as POST };

@@ -16,7 +16,7 @@ const page = () => {
       {/* Google */}
       <button
         onClick={() => signIn("google", { callbackUrl: "/" })}
-        className="flex h-12 w-full items-center justify-center gap-3 border rounded-lg transition hover:cursor-pointer hover:bg-gray-50"
+        className="flex h-12 w-full items-center justify-center gap-3 border rounded-lg  hover:cursor-pointer hover:opacity-90 transition-all duration-300"
       >
         <Image
           src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -31,7 +31,7 @@ const page = () => {
       {/* GitHub */}
       <button
         onClick={() => signIn("github", { callbackUrl: "/" })}
-        className="flex h-12 w-full items-center justify-center gap-3 border rounded-lg transition hover:cursor-pointer hover:bg-gray-50"
+        className="flex h-12 w-full items-center justify-center gap-3 border rounded-lg  hover:cursor-pointer hover:opacity-90 transition-all duration-300"
       >
         <Image
           src="https://www.svgrepo.com/show/475654/github-color.svg"
@@ -44,7 +44,7 @@ const page = () => {
       </button>
 
       {/* Facebook */}
-      <button className="flex h-12 w-full items-center justify-center gap-3 border rounded-lg transition hover:cursor-pointer hover:bg-gray-50">
+      <button className="flex h-12 w-full items-center justify-center gap-3 border rounded-lg  hover:cursor-pointer hover:opacity-90 transition-all duration-300">
         <Image
           src="https://www.svgrepo.com/show/475647/facebook-color.svg"
           alt="Facebook"
