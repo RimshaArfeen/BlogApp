@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google"
 import GitHubProvider from "next-auth/providers/github"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
-import { slugify } from "@/lib/slugify"
+import { slugify } from  "../../../utils"
 
 const prisma = new PrismaClient()
 
