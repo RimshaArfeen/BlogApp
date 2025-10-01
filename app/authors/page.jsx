@@ -1,37 +1,7 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
-
-// const getAuthors = async () => {
-//      // Simulate a network delay
-//      await new Promise(resolve => setTimeout(resolve, 500));
-
-//      return [
-//           {
-//                id: 'author-1',
-//                name: 'Jane Doe',
-//                email: 'jane.doe@example.com',
-//                image: 'https://placehold.co/128x128/333333/FFFFFF?text=JD',
-//                summary: 'A seasoned tech writer with a passion for web development.',
-//                slug: 'jane-doe',
-//           },
-//           {
-//                id: 'author-2',
-//                name: 'John Smith',
-//                email: 'john.smith@example.com',
-//                image: 'https://placehold.co/128x128/555555/FFFFFF?text=JS',
-//                summary: 'Specializing in back-end technologies and data science.',
-//                slug: 'john-smith',
-//           },
-//           {
-//                id: 'author-3',
-//                name: 'Emily Davis',
-//                email: 'emily.davis@example.com',
-//                image: 'https://placehold.co/128x128/777777/FFFFFF?text=ED',
-//                summary: 'Loves to write about modern JavaScript frameworks and design.',
-//                slug: 'emily-davis',
-//           }
-//      ];
-// };
+import { slugify } from '../utils';
 
 const getAuthors = async () => {
      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/authors`, { cache: 'no-store' });
@@ -97,7 +67,7 @@ export default async function AuthorsPage() {
                             </p>
                             
                             {/* Call to Action Button */}
-                            <Link href={`/authors/${author.slug}`} passHref>
+                            <Link href={`/authors/${slugify(author.name || author.email)}`}>
                                 <button 
                                     className="w-full  btn-primary text-white font-semibold py-3 px-6 rounded-lg shadow-lg   transition-colors duration-200"
                                 >

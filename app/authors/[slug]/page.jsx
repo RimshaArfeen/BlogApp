@@ -5,6 +5,7 @@ import { auth } from '@/auth';
 import { formatDate, truncateText } from '@/app/utils';
 import Image from 'next/image';
 
+
 const getAuthors = async (slug) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/authors/${slug}`, { cache: 'no-store' });
   if (!res.ok) {
@@ -12,8 +13,12 @@ const getAuthors = async (slug) => {
   }
   try {
     const data = await res.json();
-    return data;
-  } catch (error) {
+ const author = data.find(a => slugify(a.name || a.email) === slug);
+
+  if (!author) throw new Error("Author not found");
+  return author;
+
+} catch (error) {
     console.log("Error parsing JSON:", error);
     throw error;
 
@@ -23,7 +28,7 @@ const getAuthors = async (slug) => {
 
 const page = async ({ params }) => {
   const author = await params;
-  const data = await getAuthors(author.slug);
+  const data = await getAuthors(slug);
 
   // if (!data.user) {
   //   return (

@@ -20,20 +20,5 @@ export const { handlers: { GET, POST }, auth } = NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  callbacks: {
-    async jwt({ token, user }) {
-      // Runs once when user signs in
-      if (user) {
-        token.slug = slugify(user.name || user.email)
-      }
-      return token
-    },
-    async session({ session, token }) {
-      // Make slug available in client session
-      if (session.user) {
-        session.user.slug = token.slug
-      }
-      return session
-    },
-  },
+ 
 })
