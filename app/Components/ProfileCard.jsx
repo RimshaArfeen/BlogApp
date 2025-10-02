@@ -84,8 +84,17 @@ const ProfilePage = () => {
                 {authorPosts.map((post) => (
                   <div
                     key={post.id}
-                    className="border rounded-xl shadow-md p-5 hover:shadow-lg transition"
+                    className="relative border rounded-xl shadow-md p-5 hover:shadow-lg transition"
                   >
+                    {/* Delete Button */}
+                    <button
+                      onClick={() => handleDelete(post.id)} // your delete function
+                      className="absolute top-3 right-3 p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 hover:scale-110 transition-all duration-200"
+                      title="Delete post"
+                    >
+                      🗑️
+                    </button>
+
                     <h4 className="font-semibold text-gray-900 dark:text-white">
                       {post.title}
                     </h4>
@@ -103,6 +112,7 @@ const ProfilePage = () => {
                     </a>
                   </div>
                 ))}
+
               </div>
             </>
           ) : (
