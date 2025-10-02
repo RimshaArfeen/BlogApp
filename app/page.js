@@ -13,28 +13,27 @@ export default async function HomePage() {
       {/* Hero Section */}
      <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between py-20 px-6">
   {/* Left Content */}
-  <div className="max-w-2xl text-center md:text-left space-y-6">
+  <div className="w-full text-center space-y-8">
     <h1 className="gradient-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold">
       Your Voice, Our Echo
     </h1>
-    <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+    <p className=" lg:px-20 text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
       Welcome to EchoJournal, a space where reflections, opinions, and stories come together to shape a stronger community.
     </p>
-    <div className="flex justify-center md:justify-start gap-4">
-      <Link href="/allBlogs" className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+    <div className=" w-full flex justify-center gap-4">
+      <Link href="/allBlogs" className="px-6 py-3 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full hover:opacity-90 hover:cursor-pointer transition">
         Explore Blogs
       </Link>
-      <Link href="/writeBlog" className="px-6 py-3 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition">
+      <Link href="/writeBlog" className="px-6 py-3 rounded-full hover:bg-blue-50 transition">
         Write Your Story
       </Link>
     </div>
-    <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">✨ Join 5,000+ readers already on EchoJournal</p>
   </div>
 
   {/* Right Illustration / Image */}
-  <div className="mt-10 md:mt-0">
-<div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl -z-10 hover:top-5 hover:right-3.5 "></div>
-  </div>
+ 
+<div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl  hover:top-5 hover:right-3.5 "></div>
+ 
 </section>
 
 
