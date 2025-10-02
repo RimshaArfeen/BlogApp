@@ -7,7 +7,7 @@ import AuthProvider from "../providers/AuthProvider";
 import { BlogsProvider } from "./context/BlogsContext";
 import LoadingProvider from "./Components/LoadingProvider";
 import { Poppins, Allura } from "next/font/google";
-
+import Logo from '../public/BlogLogo.png';
 const poppins = Poppins({
   weight: ["300","400", "500","600", "700"],
   subsets: ["latin"],
@@ -25,6 +25,15 @@ const allura = Allura({
 export const metadata = {
   title: "EchoJournal | Discover Ideas, Stories & Insights",
   description: "Welcome to Blog App — your hub for fresh ideas, inspiring stories, and expert insights. Explore trending topics, connect with authors, and start your reading journey today.",
+  images: [
+      {
+        url: '../public/BlogLogo.png',
+        width: 1200,
+        height: 630,
+        alt: 'EchoJournal',
+      },
+    ]
+    
 };
 
 

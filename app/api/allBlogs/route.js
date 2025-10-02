@@ -61,3 +61,37 @@ export async function POST(req) {
   }
 }
 
+export async function DELETE(req) {
+  const session = await auth();
+  if (!session) {
+    return NextResponse.json({ error: "User not logged in" }, { status: 401 });
+  }
+
+  try {
+    const { searchParams } = new URL(req.url);
+    const postId = searchParams.get("id");
+    if (!postId) {
+      return NextResponse.json({ error: "Post ID is required" }, { status: 400 });
+    }
+
+    const post = await prisma.blog.findUnique({
+      where: { id: postId },
+      select: { userEmail: true, slug: true }, // 🔥 also fetch slug
+    });
+
+    if (!post || post.userEmail !== session.user.email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
+    }
+
+    // 🔥 First delete related comments by blogSlug
+    await prisma.comment.deleteMany({ where: { blogSlug: post.slug } });
+
+    // Then delete the blog by id
+    await prisma.blog.delete({ where: { id: postId } });
+
+    return NextResponse.json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.error("❌ Deleting POST error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}

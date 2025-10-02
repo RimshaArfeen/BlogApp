@@ -46,7 +46,7 @@ const SearchInput = () => {
           }}
           type="search"
           id="default-search"
-          className="block w-full p-4 ps-10 text-sm sub border focus:ring-1"
+          className="block w-full p-4 ps-10 text-sm sub border focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search by categories"
         />
         <button

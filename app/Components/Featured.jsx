@@ -17,8 +17,8 @@ const Featured = () => {
         <div key={idx} className="space-y-10">
           {/* Page Heading */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-3">
-              Featured Reflection ✨
+            <h1 className="gradient-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-3">
+              Featured Reflection <span className=' text-gray-50 '>✨</span>
             </h1>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 font-medium">
               Discover community stories and thoughtful articles
@@ -30,9 +30,11 @@ const Featured = () => {
             {/* Blog Image */}
             <div className="md:w-1/2 w-full">
               <Image
-                width={600} height={400}
-                style={{ height: "auto", width: "auto" }}
-                className="rounded-xl object-cover w-full h-[320px] shadow-md"
+                
+                width={600}
+                height={400}
+                priority={true}
+                className="rounded-xl mx-auto object-cover w-full h-[320px] shadow-md"
                 src={blog.img}
                 alt={blog.title}
               />

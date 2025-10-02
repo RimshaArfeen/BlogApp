@@ -6,48 +6,37 @@ import { LatestBlogs } from "./Components/LatestBlogs";
 import MostPopular from "./Components/MostPopular";
 import Link from "next/link";
 
+console.log(process.env.NEXTAUTH_URL)
 export default async function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center gap-y-3 justify-around py-20 px-4 text-center">
-        <div className="max-w-4xl mx-auto z-10">
-          {/* <Link
-            href="#"
-            className="inline-flex items-center gap-3 py-2 px-5 mb-8 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800 transition"
-          >
-            <span className="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5">
-              New
-            </span>
-            <span className="text-sm font-medium">
-              EchoJournal has launched! See what's new
-            </span>
-            <svg
-              className="w-3 h-3"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 9 4-4-4-4"
-              />
-            </svg>
-          </Link> */}
-          <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Your Voice, Our Echo
-          </h1>
-          <p className="mb-12 text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-            Welcome to EchoJournal, a space where reflections, opinions, and
-            stories come together to shape a stronger community.
-          </p>
-        </div>
-       
-      </section>
+     <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between py-20 px-6">
+  {/* Left Content */}
+  <div className="max-w-2xl text-center md:text-left space-y-6">
+    <h1 className="gradient-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold">
+      Your Voice, Our Echo
+    </h1>
+    <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+      Welcome to EchoJournal, a space where reflections, opinions, and stories come together to shape a stronger community.
+    </p>
+    <div className="flex justify-center md:justify-start gap-4">
+      <Link href="/allBlogs" className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+        Explore Blogs
+      </Link>
+      <Link href="/writeBlog" className="px-6 py-3 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition">
+        Write Your Story
+      </Link>
+    </div>
+    <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">✨ Join 5,000+ readers already on EchoJournal</p>
+  </div>
+
+  {/* Right Illustration / Image */}
+  <div className="mt-10 md:mt-0">
+<div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl -z-10 hover:top-5 hover:right-3.5 "></div>
+  </div>
+</section>
+
 
       {/* Main Content */}
       <main className="px-4 sm:px-10 lg:px-20 xl:px-32 py-16 space-y-20">
@@ -61,7 +50,7 @@ export default async function HomePage() {
           </div>
 
           {/* Sidebar */}
-          <aside className="w-full lg:w-[30%] md:sticky md:top-20 h-fit p-6 rounded-lg shadow-md border">
+          <aside className="sub w-full lg:w-[30%] py-12 md:sticky md:top-16 h-fit p-6  shadow-lg border-l mb-10">
             <MostPopular />
           </aside>
         </div>

@@ -58,7 +58,7 @@ const Card = ({ _id, slug, title, desc, img, views, user, catSlug, userEmail, cr
         <Link
           href={`/allBlogs/${slug}`}
           className="hover:cursor-pointer mt-3 btn-primary p-2 transition-all duration-300 text-sm  ">
-          Read More
+          Read More →
         </Link>
       </div>
     </div>

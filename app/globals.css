@@ -28,14 +28,14 @@
   --color-bg-light: linear-gradient(
     135deg,
     #f5f5f5 5%,
-    #f4f6f8 50%,
-    #dce2e9 100%
+    #dfefff 50%,
+    #ecf3fc 100%
   );
 
   --color-bg-dark: linear-gradient(
     135deg,
     #151825 0%,
-    #141927 50%,
+    #182036 50%,
     #1e2636 100%
   );
 
@@ -74,12 +74,14 @@
   --color-border-dark: #2D3748;
 
   /* Buttons */
-  --color-btn-light: #002677;
-  --color-btn-dark: #002677;
+   --color-btn-light: linear-gradient(to right, #3b82f6, #1d4ed8); /* from-blue-500 to-blue-700 */
+  --color-btn-dark: linear-gradient(to right, #3b82f6, #1d4ed8);
 
   /* CTA Buttons */
   --color-cta-light: #0F766E;
   --color-cta-dark: #14B8A6;
+
+  --color-main-heading: #0EA5E9; /* sky-500 */
 }
 
 /* ===============================
@@ -154,6 +156,20 @@ html.dark body .sub {
 /* ===============================
    Headings & Subheadings
    =============================== */
+   .gradient-heading {
+  background: linear-gradient(to right, #407dff, #4f46e5); /* blue-600 to indigo-600 */
+  -webkit-background-clip: text; /* Clip gradient to text */
+  background-clip: text;
+  color: transparent; /* text-transparent */
+}
+
+html.dark body .gradient-heading {
+  background: linear-gradient(to right, #60a5fa, #7c3aed); /* blue-600 to indigo-600 */
+  -webkit-background-clip: text; /* Clip gradient to text */
+  background-clip: text;
+  color: transparent; /* text-transparent */
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading-light);
 }
@@ -217,19 +233,19 @@ html.dark body .border {
 
 /* Primary Button */
 .btn-primary {
-  background-color: var(--color-btn-light);
+  background: var(--color-btn-light);
   color: #fff;
 }
 
 html.dark body .btn-primary {
-  background-color: var(--color-btn-dark);
+  background: var(--color-btn-dark);
   color: #fff;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
   opacity: 0.9;
-  background-color: #003199;
+  background: #003199;
 }
 
 .btn-primary:active {

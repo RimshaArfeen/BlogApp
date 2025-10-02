@@ -18,7 +18,7 @@ export function LatestBlogs() {
   
   return (
     <div className="pb-24">
-      <h1 className="text-3xl font-bold">Our Latest Blogs</h1>
+      <h1 className="gradient-heading text-4xl font-bold tracking-wide">Our Latest Blogs</h1>
       <hr className="my-4 border-gray-300 w-1/2" />
       {blogs.length > 0 ? (
         blogs.slice(0, 3).map((blog) => <Card key={blog.id} {...blog} />)

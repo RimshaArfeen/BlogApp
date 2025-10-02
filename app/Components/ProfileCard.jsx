@@ -23,11 +23,27 @@ const ProfilePage = () => {
     (blog) => blog?.user?.email === session?.user?.email
   );
 
+const handleDelete = async (postId) => {
+   window.confirm("Are you sure you want to delete this post?");
+   if (true) {
+     const res = await fetch (`/api/allBlogs?id=${postId}`, {
+       method: "DELETE",
+     });
+     const data = await res.json();
+     if (res.ok) {
+       alert("Post deleted successfully");
+       window.location.reload();
+     } else {
+       alert(data.error || "Failed to delete post");
+     }
+   }
+};
+
   return (
     <div className="min-h-screen sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Profile Card */}
-        <div className="shadow-lg rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div className="shadow-md rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-6">
           <Image
             width={128}
             height={128}
@@ -66,7 +82,7 @@ const ProfilePage = () => {
             {/* Logout */}
             <button
               onClick={handleLogout}
-              className="mt-6 inline-block hover:cursor-pointer bg-red-600 text-white px-5 py-2 rounded text-sm font-medium hover:bg-red-700 focus:ring-2 focus:ring-red-400 focus:outline-none"
+              className="mt-6 inline-block hover:cursor-pointer bg-gradient-to-r from-red-500 to-red-700 text-white hover:opacity-80 duration-200 transition px-5 py-2 rounded text-sm font-medium "
             >
               Logout
             </button>
@@ -80,41 +96,44 @@ const ProfilePage = () => {
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
                 Your Posts
               </h3>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {authorPosts.map((post) => (
-                  <div
-                    key={post.id}
-                    className="relative border rounded-xl shadow-md p-5 hover:shadow-lg transition"
-                  >
-                    {/* Delete Button */}
-                    <button
-                      onClick={() => handleDelete(post.id)} // your delete function
-                      className="absolute top-3 right-3 p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 hover:scale-110 transition-all duration-200"
-                      title="Delete post"
-                    >
-                      🗑️
-                    </button>
+              <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
+  {authorPosts.map((post) => (
+    <div
+      key={post.id}
+      className="mb-6 break-inside-avoid border rounded shadow p-5 hover:shadow-lg transition"
+    >
+      <h4 className="font-semibold text-gray-900 dark:text-white">
+        {post.title}
+      </h4>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+        {formatDate(post.createdAt)}
+      </p>
+      <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
+        {truncateText(post.desc, 70)}
+      </p>
 
-                    <h4 className="font-semibold text-gray-900 dark:text-white">
-                      {post.title}
-                    </h4>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                      {formatDate(post.createdAt)}
-                    </p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
-                      {truncateText(post.desc, 70)}
-                    </p>
-                    <a
-                      href={`/allBlogs/${post.slug}`}
-                      className="mt-3 inline-block text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium"
-                    >
-                      Read more →
-                    </a>
-                  </div>
-                ))}
+      <div className="w-full text-sm mt-4 flex justify-between flex-wrap gap-2">
+        <a
+          href={`/allBlogs/${post.slug}`}
+          className="btn-primary p-2 mt-3 hover:opacity-80 duration-200 inline-block hover:cursor-pointer font-medium"
+        >
+          Read more →
+        </a>
 
-              </div>
-            </>
+        <button
+          onClick={() => handleDelete(post.id)}
+          className="p-2 mt-3 inline-block  font-medium bg-gradient-to-r from-red-500 to-red-700 text-white hover:opacity-80 duration-200 hover:cursor-pointer transition"
+          title="Delete post"
+        >
+          Delete Post
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
+               </>
+          
           ) : (
             <div className="text-center py-10">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
