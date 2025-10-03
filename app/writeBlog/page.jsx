@@ -63,6 +63,7 @@ export default function Page() {
 
       if (response.ok) {
         alert("✅ Blog submitted successfully!");
+        router.push("/allBlogs");
       } else {
         const err = await response.json();
         alert("❌ Error: " + err.error);

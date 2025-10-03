@@ -36,19 +36,23 @@ const SearchInput = () => {
             />
           </svg>
         </div>
-        <input
+        <select
           value={query}
-          onChange={(e) => {
-            const value = e.target.value;
-            const capitalized =
-              value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
-            setQuery(capitalized);
-          }}
-          type="search"
-          id="default-search"
+          onChange={(e) => setQuery(e.target.value)}
+          id="category-search"
           className="block w-full p-4 ps-10 text-sm sub border focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="Search by categories"
-        />
+        >
+          <option value="">Search by categories</option>
+          <option value="Technology">Technology</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Education">Education</option>
+          <option value="Health">Health</option>
+          <option value="Career Growth">Career Growth</option>
+          <option value="Lifestyle">Lifestyle</option>
+          <option value="Travel">Travel</option>
+          <option value="Fashion">Fashion</option>
+        </select>
+
         <button
           type="submit"
           className="text-white absolute end-2.5 bottom-2.5 font-medium rounded-lg text-sm px-4 py-2 btn-primary"
