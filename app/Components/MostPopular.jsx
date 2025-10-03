@@ -47,8 +47,8 @@ const MostPopular = ({ blogs }) => {
         </h6>
 
         {/* Description */}
-        <p className="text-sm  dark: leading-relaxed mt-1">
-          {truncateText(item.desc, 100)}
+        <p 
+        dangerouslySetInnerHTML={{ __html: truncateText(item.desc, 100) }}className="text-sm  dark: leading-relaxed mt-1">
         </p>
       </div>
     </div>
