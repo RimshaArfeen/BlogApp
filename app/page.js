@@ -20,11 +20,11 @@ export default async function HomePage() {
     <p className=" lg:px-20 text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
       Welcome to EchoJournal, a space where reflections, opinions, and stories come together to shape a stronger community.
     </p>
-    <div className=" w-full flex justify-center gap-4">
-      <Link href="/allBlogs" className="px-6 py-3 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full hover:opacity-90 hover:cursor-pointer transition">
+    <div className=" w-full flex justify-center gap-4 text-white">
+      <Link href="/allBlogs" className="px-6 py-3 bg-gradient-to-br from-blue-500 to-purple-600  rounded-full hover:opacity-90 hover:cursor-pointer transition  hover:text-sm">
         Explore Blogs
       </Link>
-      <Link href="/writeBlog" className="px-6 py-3 rounded-full hover:bg-blue-50 transition">
+      <Link href="/writeBlog" className="px-6 py-3 rounded-full hover:opacity-80 border border-blue-500  transition-all duration-300  hover:text-sm">
         Write Your Story
       </Link>
     </div>
@@ -38,7 +38,7 @@ export default async function HomePage() {
 
 
       {/* Main Content */}
-      <main className="px-4 sm:px-10 lg:px-20 xl:px-32 py-16 space-y-20">
+      <main className="px-4 sm:px-10 xl:px-32 py-16 space-y-20">
         <Featured />
         <Categories />
 

@@ -2,23 +2,26 @@
 import React from 'react'
 import Link from 'next/link'
 import { auth } from '@/auth';
-import { formatDate, truncateText } from '@/app/utils';
+import { formatDate, truncateText, slugify } from '@/app/utils';
 import Image from 'next/image';
 
 
 const getAuthors = async (slug) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/authors/${slug}`, { cache: 'no-store' });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/authors/${slug}`,
+    { cache: 'no-store' });
   if (!res.ok) {
     throw new Error("Failed to fetch authors");
   }
   try {
     const data = await res.json();
- const author = data.find(a => slugify(a.name || a.email) === slug);
+    console.log("Fetched author data:", data);
+    
+    const author = slugify(data.name || data.email) === slug ? data : null;
 
-  if (!author) throw new Error("Author not found");
-  return author;
+    if (!author) throw new Error("Author not found");
+    return author;
 
-} catch (error) {
+  } catch (error) {
     console.log("Error parsing JSON:", error);
     throw error;
 
@@ -28,7 +31,7 @@ const getAuthors = async (slug) => {
 
 const page = async ({ params }) => {
   const author = await params;
-  const data = await getAuthors(slug);
+  const data = await getAuthors(author.slug);
 
   // if (!data.user) {
   //   return (
@@ -39,20 +42,20 @@ const page = async ({ params }) => {
   // }
 
   return (
-    
+
     <section className="px-3 md:px-10 py-16 min-h-screen">
       <div className="w-full lg:w-[70%] mx-auto">
         {/* Author Profile Header */}
         <div className="flex flex-col items-center text-center mb-16">
           {data.image && (
             <>
-            <Image
-              src={data.image}
-              alt={data.name || "User"}
-              width={64}  // required
-              height={64} // required
-    className="w-16 h-16 rounded-full object-cover border border-primary"
-  />
+              <Image
+                src={data.image}
+                alt={data.name || "User"}
+                width={64}  // required
+                height={64} // required
+                className="w-16 h-16 rounded-full object-cover border border-primary"
+              />
             </>
           )}
 
@@ -83,13 +86,13 @@ const page = async ({ params }) => {
                   {blog.img && (
                     <div className="relative h-56 w-full overflow-hidden">
                       <Image
-                      fill
-                       style={{ objectFit: "cover" }}
+                        fill
+                        style={{ objectFit: "cover" }}
 
                         alt={blog.title}
                         className="object-cover object-center w-full h-full transition-transform transform  hover:scale-110 duration-500"
                         src={blog.img}
-                       
+
                       />
                     </div>
                   )}

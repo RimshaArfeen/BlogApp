@@ -16,7 +16,7 @@ export async function GET(req, { params }) {
         categories: true,
       },
     });
-
+ 
     if (!author || author.blogs.length === 0) {
       return NextResponse.json({ error: "Author not found or has no blogs" }, { status: 404 });
     }

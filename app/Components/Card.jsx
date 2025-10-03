@@ -15,7 +15,7 @@ const Card = ({ _id, slug, title, desc, img, views, user, catSlug, userEmail, cr
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="w-full sm:flex justify-between items-center p-2 mb-6 ">
+    <div className="w-full text-center sm:text-left sm:flex justify-between items-center p-2 mb-6 ">
       {/* Blog Image */}
 {img && (
  <div className="relative w-full sm:w-1/2 h-64 overflow-hidden">
@@ -46,11 +46,11 @@ const Card = ({ _id, slug, title, desc, img, views, user, catSlug, userEmail, cr
         <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
           {title}
         </h3>
-        <Link href={`/authors/${slugify(user.name)}`} className="text-sm  mb-3 flex items-center opacity-70 hover:cursor-pointer">
-          <User size={20} className="mr-2 p-1 rounded-full border" /> {user.name}
+        <Link href={`/authors/${slugify(user.name)}`} className=" w-full text-sm  mb-3 flex items-center justify-center sm:justify-start opacity-70 hover:cursor-pointer">
+          <User size={20} className="mr-2 p-1 rounded-full border " /> {user.name}
         </Link>
 {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-3 text-justify">
           {truncateText(desc, 150)}
         </p>
 
