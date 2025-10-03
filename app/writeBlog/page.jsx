@@ -138,7 +138,7 @@ export default function Page() {
                 {errors.title && <p className="text-red-500 text-sm">Title is required</p>}
 
                 {/* Image URL + Toolbar */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b pb-4">
+                <div className="hidden sm:flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b pb-4">
                   <input
                     {...register("img")}
                     placeholder="Image URL (optional)"
