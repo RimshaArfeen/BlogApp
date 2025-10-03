@@ -3,6 +3,14 @@
 import { Twitter, Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
+   const links = [
+    { title: "Home", href: "/" },
+    { title: "Blogs", href: "/allBlogs" },
+    { title: "Write Blog", href: "/writeBlog" },
+    { title: "Authors", href: "/authors" },
+    { title: "Contact", href: "/contact" },
+  ];
+
   return (
     <footer className=" border-t ">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -10,7 +18,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <h2 className="text-xl  text-red-800 font-bold ">
-            MyBlog
+            Echo Journal
           </h2>
           <p className="mt-3 text-sm ">
             Sharing ideas, stories & knowledge with the world.
@@ -23,13 +31,13 @@ export default function Footer() {
             Quick Links
           </h3>
           <ul className="mt-3 space-y-2">
-            {["Home", "Blog", "Categories", "About", "Contact"].map((link) => (
-              <li key={link}>
+            {links.map((link) => (
+              <li key={link.title}>
                 <a
-                  href="#"
+                  href={link.href}
                   className="text-sm  hover:opacity-80 transition"
                 >
-                  {link}
+                  {link.title}
                 </a>
               </li>
             ))}
@@ -53,7 +61,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="mt-3 text-sm text-[var(--color-subheading-light)] dark:text-[var(--color-subheading-dark)]">
-            hello@myblog.com
+            EchoJournal@gmail.com
           </p>
         </div>
       </div>
@@ -61,7 +69,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-[var(--color-border-light)] dark:border-[var(--color-border-dark)]">
         <p className="text-center py-4 text-xs text-[var(--color-subheading-light)] dark:text-[var(--color-subheading-dark)]">
-          ©2025 MyBlog. All rights reserved.
+          ©2025 EchoJournal. All rights reserved.
         </p>
       </div>
     </footer>

@@ -31,9 +31,9 @@ export default async function HomePage() {
   </div>
 
   {/* Right Illustration / Image */}
- 
-<div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl  hover:top-5 hover:right-3.5 "></div>
- 
+
+<div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl  animate-pulse"></div>
+
 </section>
 
 

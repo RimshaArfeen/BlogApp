@@ -137,14 +137,9 @@ export default function Page() {
                 />
                 {errors.title && <p className="text-red-500 text-sm">Title is required</p>}
 
-                {/* Image URL + Toolbar */}
+                {/* Categories + Toolbar */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b pb-4">
-                  <input
-                    {...register("img")}
-                    placeholder="Image URL (optional)"
-                    className="hidden sm:block w-full sm:flex-1 text-sm placeholder-gray-400 dark:placeholder-gray-500 border-b sm:border-0 pb-2 sm:pb-0 bg-transparent focus:outline-none"
-                  />
-
+                 
                   <div className="flex items-center gap-3 text-xl rounded-md px-3 py-2">
                     {toolbarButtons.map((button, index) =>
                       button.type === "map" ? (
@@ -173,21 +168,22 @@ export default function Page() {
                       )
                     )}
                   </div>
-                </div>
-
-                {/* Category Selector */}
+                   {/* Category Selector */}
                 <select
                   {...register("category", { required: true })}
-                  className="block w-full text-sm py-2 px-3 rounded-md border bg-transparent focus:outline-none"
+                  className="block  w-full text-sm py-2 px-3 rounded-md border  focus:outline-none"
                 >
-                  <option value="">Select a category</option>
-                  <option value="Artificial Intelligence">Artificial Intelligence</option>
-                  <option value="Technology">Technology</option>
-                  <option value="Lifestyle">Lifestyle</option>
-                  <option value="Travel">Travel</option>
-                  <option value="Health">Health</option>
-                  <option value="Career Growth">Career Growth</option>
+                  <option className="sub text-gray-700" value="">Select a category</option>
+                  <option className="sub text-gray-700" value="Artificial Intelligence">Artificial Intelligence</option>
+                  <option className="sub text-gray-700" value="Technology">Technology</option>
+                  <option className="sub text-gray-700" value="Lifestyle">Lifestyle</option>
+                  <option className="sub text-gray-700" value="Travel">Travel</option>
+                  <option className="sub text-gray-700" value="Health">Health</option>
+                  <option className="sub text-gray-700" value="Career Growth">Career Growth</option>
                 </select>
+                </div>
+
+               
 
                 {/* Blog Content */}
                 <TextEditor value={content} onChange={setContent} />

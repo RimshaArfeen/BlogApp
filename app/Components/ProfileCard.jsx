@@ -108,8 +108,9 @@ const handleDelete = async (postId) => {
       <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
         {formatDate(post.createdAt)}
       </p>
-      <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
-        {truncateText(post.desc, 70)}
+      <p 
+      dangerouslySetInnerHTML={{ __html: truncateText(post.desc, 100) }}
+      className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
       </p>
 
       <div className="w-full text-sm mt-4 flex justify-between flex-wrap gap-2">
