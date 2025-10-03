@@ -50,9 +50,10 @@ const Card = ({ _id, slug, title, desc, img, views, user, catSlug, userEmail, cr
           <User size={20} className="mr-2 p-1 rounded-full border " /> {user.name}
         </Link>
 {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-3 text-justify">
-          {truncateText(desc, 150)}
-        </p>
+        <p
+          dangerouslySetInnerHTML={{ __html: truncateText(desc, 150) }}
+          className="prose prose-invert text-gray-600 dark:text-gray-300 leading-relaxed mb-3 text-justify"
+        />
 
         {/* Read More Button */}
         <Link
