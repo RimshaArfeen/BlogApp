@@ -41,25 +41,26 @@ export async function POST(req) {
     const body = await req.json();
     console.log("POST API route - Received body:", body);
     
-    // Trim the slug from the body to ensure consistency
-    const slugifiedSlug = slugify(body.blogSlug);
-    console.log("POST API route - Saving with slugified slug:", slugifiedSlug);
+    // Define trimmedSlug (was missing)
+    const trimmedSlug = body.blogSlug?.trim().replace(/:/g, "-");
+
     const existingUser = await prisma.user.findUnique({
       where: { email: session.user.email },
     });
 
-if (!existingUser) {
-  return NextResponse.json({ error: "User not found" }, { status: 400 });
-}
+    if (!existingUser) {
+      return NextResponse.json({ error: "User not found" }, { status: 400 });
+    }
 
     const comment = await prisma.comment.create({
       data: {
         desc: body.desc,
         userEmail: session.user.email,
-        blogSlug: trimmedSlug, // Use the trimmed slug here
+        blogSlug: trimmedSlug, // Now defined correctly
       },
       include: { user: true },
     });
+
     console.log("✅ Comment created:", comment);
     return NextResponse.json(comment, { status: 200 });
   } catch (error) {

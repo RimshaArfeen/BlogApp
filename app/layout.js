@@ -54,7 +54,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning  className={`${poppins.variable} ${allura.variable}`}>
       <body>
-        <AuthProvider>
+        <AuthProvider> 
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <BlogsProvider blogs={blogs}>
               <LoadingProvider>
