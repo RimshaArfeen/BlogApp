@@ -86,7 +86,7 @@ export default function Navbar() {
               href="tel:+923312035368"
               className="flex items-center space-x-2 hover:text-blue-600 dark:hover:text-blue-400 transition"
             >
-              <Phone size={18} /> <span className="ml-1">(+92) 3312035368</span>
+              <Phone size={18} /> <span className="ml-1 capitalize">phone number</span>
             </a>
 
             {!isLogin ? (

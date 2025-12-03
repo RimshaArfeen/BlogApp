@@ -62,9 +62,9 @@ export default async function AuthorsPage() {
                             
                             {/* Name and Email */}
                             <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1 capitalize">{author.name}</h2>
-                            <p className="text-base text-indigo-600 dark:text-indigo-400 mb-6 font-medium">
+                            {/* <p className="text-base text-indigo-600 dark:text-indigo-400 mb-6 font-medium">
                                 {author.email}
-                            </p>
+                            </p> */}
                             
                             {/* Call to Action Button */}
                             <Link href={`/authors/${slugify(author.name || author.email)}`}>

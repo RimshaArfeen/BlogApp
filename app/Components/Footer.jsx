@@ -3,7 +3,7 @@
 import { Twitter, Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
-   const links = [
+  const links = [
     { title: "Home", href: "/" },
     { title: "Blogs", href: "/allBlogs" },
     { title: "Write Blog", href: "/writeBlog" },
@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className=" border-t ">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
-        
+
         {/* Brand */}
         <div>
           <h2 className="text-xl  text-red-800 font-bold ">
@@ -61,7 +61,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="mt-3 text-sm text-[var(--color-subheading-light)] dark:text-[var(--color-subheading-dark)]">
-            EchoJournal@gmail.com
+            EchoJournal-gmail
           </p>
         </div>
       </div>

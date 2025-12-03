@@ -55,12 +55,12 @@ const handleDelete = async (postId) => {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               {session?.user?.name || "Anonymous User"}
             </h2>
-            <div className="flex items-center justify-center md:justify-start space-x-2 mt-2">
+            {/* <div className="flex items-center justify-center md:justify-start space-x-2 mt-2">
               <Mail className="inline-block text-sm text-gray-500 dark:text-gray-400" />
               <p className="text-gray-500 dark:text-gray-400">
-                {session?.user?.email}
+                
               </p>
-            </div>
+            </div> */}
             <p className="mt-3 text-gray-700 dark:text-gray-300 max-w-lg">
               Passionate blogger and open-source contributor. Sharing knowledge on
               Next.js, React, and modern web development.

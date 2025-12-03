@@ -63,7 +63,7 @@ const page = async ({ params }) => {
 
 
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-2 capitalize">{data.name}</h1>
-          <a href={`mailto:${data.email}`} className="text-sm  dark: mb-6 hover:underline">{data.email}</a>
+          {/* <a href={`mailto:${data.email}`} className="text-sm  dark: mb-6 hover:underline">{data.email}</a> */}
           <p className="max-w-prose  dark: italic px-4 md:px-0">Hi, I'm {data.name}! a passionate writer and want to share my thoughts with the world.</p>
         </div>
 
@@ -72,7 +72,7 @@ const page = async ({ params }) => {
 
         {/* Posts by Author Section */}
         <h2 className="text-3xl font-bold mb-8 text-center sm:text-left">
-          Posts by {author.name}
+          Posts by {data.name}
         </h2>
         <div className="flex justify-between items-start mb-8 w-full">
           {data.blogs.length > 0 ? (

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import React from 'react'
 import Image from 'next/image'
 
+
 const fetcher = async (url) => {
     const response = await fetch(url)
     const data = await response.json()
@@ -59,7 +60,7 @@ const Comments = ({ blogSlug }) => {
                 body: JSON.stringify({ desc, blogSlug: trimmedSlug, userEmail: session.user.email}),
             })
             console.log("POST request response:", res);
-            
+            isLoading(true)
             if (!res.ok) {
                 const err = await res.json();
                 throw new Error(err.message || "Failed to submit comment");
@@ -81,13 +82,15 @@ const Comments = ({ blogSlug }) => {
                         <input type="text" value={desc}
                             onChange={(e) => { setDesc(e.target.value) }}
                             id="chat" rows="1" className=" p-2.5 w-full text-sm rounded-lg border focus:ring-gray-400 capitalize italic " placeholder="Write Your thoughts here..."></input>
-                        <button
-                            type="submit" className="btn-primary inline-flex justify-center p-3  rounded-full  cursor-pointer border  ml-2.5">
+                          
+              <button
+                            type="submit" className={`btn-primary inline-flex justify-center p-3  rounded-full  cursor-pointer border  ml-2.5`}>
                             <svg className="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                                 <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
                             </svg>
                             <span className="sr-only ">Send message</span>
                         </button>
+                          
                     </div>
                 </form>
 

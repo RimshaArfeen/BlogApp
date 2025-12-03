@@ -1,5 +1,5 @@
 
-
+ 
 // app/allBlogs/[slug]/page.js
 
 import Comments from "../../Components/Comments";
